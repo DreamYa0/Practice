@@ -93,11 +93,9 @@ public class MockitoSampleTest {
 
         //①-5 验证交互行为
         verify(mockUserService).findUserByUserName("tom");
-
         //①-6 验证方法至少调用一次
         verify(mockUserService, atLeastOnce()).findUserByUserName("tom");
         verify(mockUserService, atLeast(1)).findUserByUserName("tom");
-
         //①-7 验证方法至多调用一次
         verify(mockUserService, atMost(1)).findUserByUserName("tom");
     }

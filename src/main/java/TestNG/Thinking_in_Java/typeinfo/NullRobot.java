@@ -1,7 +1,6 @@
 package TestNG.Thinking_in_Java.typeinfo;
 
 import TestNG.Thinking_in_Java.net.mindview.util.Null;
-import org.apache.poi.ss.formula.functions.T;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;

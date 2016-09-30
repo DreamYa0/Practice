@@ -1,0 +1,7 @@
+package TestNG.Thinking_in_Java.generics.coffee;
+
+/**
+ * Created by dreamyao on 16-9-30.
+ */
+public class Breve extends Coffee {
+}

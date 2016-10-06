@@ -3,9 +3,10 @@ package TestNG.Thinking_in_Java.generics;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**@author dreamyao
- * Created by dreamyao on 16-9-30.
- * P357 RandomList
+/**
+ * @author dreamyao
+ *         Created by dreamyao on 16-9-30.
+ *         P357 RandomList
  */
 public class RandomList<T> {
     private ArrayList<T> storage = new ArrayList<>();

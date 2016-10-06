@@ -2,8 +2,6 @@ package TestNG.Thinking_in_Java.generics;
 
 import TestNG.Thinking_in_Java.net.mindview.util.Generator;
 
-import java.util.BitSet;
-
 /**
  * @author dreamyao
  *         Created by dreamyao on 16-10-6.

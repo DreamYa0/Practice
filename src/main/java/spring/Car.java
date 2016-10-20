@@ -11,9 +11,18 @@ public class Car implements BeanFactoryAware,BeanNameAware,InitializingBean,Disp
     private String brand;
     private String color;
     private int maxSpeed;
+    private double price;
 
     private BeanFactory beanFactory;
     private String beanName;
+
+    public double getPrice() {
+        return price;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
     public Car() {
         System.out.println("调用Car()构造函数");

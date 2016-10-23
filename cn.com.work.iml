@@ -75,7 +75,6 @@
     <orderEntry type="library" name="Maven: net.sf.ezmorph:ezmorph:1.0.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.struts:struts2-core:2.3.15.3" level="project" />
     <orderEntry type="library" name="Maven: org.apache.struts.xwork:xwork-core:2.3.15.3" level="project" />
-    <orderEntry type="library" name="Maven: asm:asm:3.3" level="project" />
     <orderEntry type="library" name="Maven: asm:asm-commons:3.3" level="project" />
     <orderEntry type="library" name="Maven: asm:asm-tree:3.3" level="project" />
     <orderEntry type="library" name="Maven: org.freemarker:freemarker:2.3.19" level="project" />
@@ -125,7 +124,6 @@
     <orderEntry type="library" name="Maven: org.unitils:unitils-inject:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.unitils:unitils-easymock:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.easymock:easymock:2.3" level="project" />
-    <orderEntry type="library" name="Maven: cglib:cglib:2.2" level="project" />
     <orderEntry type="library" name="Maven: org.easymock:easymockclassextension:2.3" level="project" />
     <orderEntry type="library" name="Maven: cglib:cglib-nodep:2.1_3" level="project" />
     <orderEntry type="library" name="Maven: org.unitils:unitils-mock:3.4.2" level="project" />
@@ -145,5 +143,8 @@
     <orderEntry type="library" name="Maven: org.unitils:unitils-database:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: org.unitils:unitils-orm:3.4.2" level="project" />
     <orderEntry type="library" name="Maven: javax.persistence:persistence-api:1.0" level="project" />
+    <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.3.0" level="project" />
+    <orderEntry type="library" name="Maven: cglib:cglib:2.2.2" level="project" />
+    <orderEntry type="library" name="Maven: asm:asm:3.3.1" level="project" />
   </component>
 </module>

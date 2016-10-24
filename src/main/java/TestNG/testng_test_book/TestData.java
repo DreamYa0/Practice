@@ -7,7 +7,9 @@ import org.testng.annotations.Test;
 import java.util.Random;
 
 /**
- * Created by DreamYao on 2016/6/8.P37接受ITestContext参数的数据提供者
+ * @author DreamYao
+ *         Created by DreamYao on 2016/6/8.
+ *         37接受ITestContext参数的数据提供者
  */
 public class TestData {
     @DataProvider

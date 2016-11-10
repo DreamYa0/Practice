@@ -1,4 +1,4 @@
-package com.dataset.db;
+package Java_AutoTest_Framework.com.dataset.db;
 
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;

@@ -1,4 +1,4 @@
-package com.solvent;
+package Java_AutoTest_Framework.com.solvent;
 
 import java.util.ArrayList;
 import java.util.Hashtable;

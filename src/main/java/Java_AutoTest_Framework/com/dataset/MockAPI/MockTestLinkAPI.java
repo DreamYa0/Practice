@@ -1,4 +1,4 @@
-package com.dataset.MockAPI;
+package Java_AutoTest_Framework.com.dataset.MockAPI;
 
 import java.util.Map;
 

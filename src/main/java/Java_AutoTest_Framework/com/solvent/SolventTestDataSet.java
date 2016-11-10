@@ -1,4 +1,4 @@
-package com.solvent;
+package Java_AutoTest_Framework.com.solvent;
 
 import java.io.File;
 import java.security.InvalidParameterException;

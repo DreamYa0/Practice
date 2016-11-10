@@ -6,7 +6,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import com.dataset.db.JSONUtils;
+import Java_AutoTest_Framework.com.dataset.db.JSONUtils;
 
 import java.util.List;
 import java.util.Map;

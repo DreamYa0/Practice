@@ -1,4 +1,4 @@
-package com.solvent;
+package Java_AutoTest_Framework.com.solvent;
 
 import org.apache.log4j.Logger;
 import org.dom4j.Document;

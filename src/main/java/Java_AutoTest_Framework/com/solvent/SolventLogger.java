@@ -1,4 +1,4 @@
-package com.solvent;
+package Java_AutoTest_Framework.com.solvent;
 
 import org.apache.log4j.*;
 
@@ -22,7 +22,7 @@ public class SolventLogger {
     /**
      * 配置类中获取日志格式和级别
      */
-    private static String defaultPattern= com.solvent.Configurator.getSolventOutputPattern();
+    private static String defaultPattern= Configurator.getSolventOutputPattern();
     private static String defaultVerbosity=Configurator.getSolventOutputVerbosity();
     static {initializelogging(defaultPattern,defaultVerbosity,null);}
     /**

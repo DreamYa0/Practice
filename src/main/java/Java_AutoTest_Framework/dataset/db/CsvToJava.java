@@ -1,4 +1,4 @@
-package Java_AutoTest_Framework.com.dataset.db;
+package Java_AutoTest_Framework.dataset.db;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;

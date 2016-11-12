@@ -107,7 +107,7 @@ public class HuaXiang3 {
         };
     }
 
-    // @Test(dataProvider = "dp5", priority = 6)
+    // @TestComplex(dataProvider = "dp5", priority = 6)
     // public void GetDoubleCompareKey(String Url, String Data) {
     // String result = HttpClient.sendInfo(client, Url, Data);
     // Assert.assertTrue(result.contains(""));
@@ -122,7 +122,7 @@ public class HuaXiang3 {
     // };
     // }
 
-//    @Test(dataProvider = "dp6", priority = 7)
+//    @TestComplex(dataProvider = "dp6", priority = 7)
 //    public void GetForcusGroupCompareKey(String Url, String Data) {
 //        String result = HttpClient.sendInfo(client, Url, Data);
 //        System.out.println(result);
@@ -135,7 +135,7 @@ public class HuaXiang3 {
 //                "{\"array1\":[\"分组1\"，\"分组2\"] }"},};
 //    }
 //
-//    @Test(dataProvider = "dp7", priority = 8)
+//    @TestComplex(dataProvider = "dp7", priority = 8)
 //    public void GetForcusGroupCompareKey1(String Url, String Data) {
 //        String result = HttpClient.sendInfo(client, Url, Data);
 //        System.out.println(result);

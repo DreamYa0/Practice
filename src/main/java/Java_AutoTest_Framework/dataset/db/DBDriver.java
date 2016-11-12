@@ -1,4 +1,4 @@
-package Java_AutoTest_Framework.com.dataset.db;
+package Java_AutoTest_Framework.dataset.db;
 
 import java.sql.*;
 import java.util.ArrayList;

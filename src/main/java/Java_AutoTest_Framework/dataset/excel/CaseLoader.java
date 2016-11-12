@@ -1,6 +1,6 @@
-package Java_AutoTest_Framework.com.dataset.excel;
+package Java_AutoTest_Framework.dataset.excel;
 
-import Java_AutoTest_Framework.com.dataset.MockAPI.MockAPI;
+import Java_AutoTest_Framework.dataset.MockAPI.MockAPI;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -19,7 +19,7 @@ public class CaseLoader {
 
     public static void loadExcel() {
         String path = "D:\\NewWork\\T_Student_2.xlsx";//文件路径
-        String sheetName = "Test";//实际项目中这两个可来自配置文件
+        String sheetName = "TestComplex";//实际项目中这两个可来自配置文件
         ExcelPaser reader = null;
         long now = System.currentTimeMillis();
         try {

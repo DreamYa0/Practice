@@ -191,7 +191,7 @@ public class StudentUser extends PublicFuntion {
     }
 
     //25 学生用户-上传材料
-//    @Test(dataProvider = "up")
+//    @TestComplex(dataProvider = "up")
 //    public void upload(String Url, String Data) {
 //        String result = HttpClient.sendInfo(client, Url, Data);
 //        Assert.assertTrue(result.contains(""));

@@ -1,4 +1,4 @@
-package Java_AutoTest_Framework.com.dataset.db;
+package Java_AutoTest_Framework.dataset.db;
 
 /**
  * Created by DreamYao on 2016/6/12.

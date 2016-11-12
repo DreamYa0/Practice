@@ -1,4 +1,4 @@
-package Java_AutoTest_Framework.com.solvent;
+package Java_AutoTest_Framework.solvent;
 
 /**
  * Created by DreamYao on 2016/7/16.

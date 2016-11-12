@@ -68,7 +68,7 @@ class Product {
 
         @Override
         public Product next() {
-            return new Product(rand.nextInt(1000), "Test", Math.round(rand.nextDouble() * 1000.0) + 0.99);
+            return new Product(rand.nextInt(1000), "TestComplex", Math.round(rand.nextDouble() * 1000.0) + 0.99);
         }
     };
 }

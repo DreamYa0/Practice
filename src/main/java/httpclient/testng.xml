@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="false" verbose="1">
     <test name="Test">
         <classes>
-            <class name="Jsoup.UestcSystem.TeachersPersonalDetails">
+            <class name="httpclient.UestcSystem.TeachersPersonalDetails">
                 <methods>
                     <include name="basicInfo"/>
                     <include name="station"/>

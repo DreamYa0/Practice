@@ -1,4 +1,4 @@
-package Jsoup;
+package httpclient;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.ClientProtocolException;

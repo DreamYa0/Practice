@@ -1,6 +1,6 @@
-package Jsoup.StudentHuaXiang;
+package httpclient.StudentHuaXiang;
 
-import Jsoup.HttpClient;
+import httpclient.HttpClient;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.log4j.Logger;

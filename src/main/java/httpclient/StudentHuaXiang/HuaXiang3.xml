@@ -3,7 +3,7 @@
 <suite name="Suite" parallel="false">
 <test name="Test">
     <classes>
-        <class name="Jsoup.StudentHuaXiang.HuaXiang3"/>
+        <class name="httpclient.StudentHuaXiang.HuaXiang3"/>
     </classes>
 </test> <!-- Test -->
 </suite> <!-- Suite -->

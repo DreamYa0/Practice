@@ -1,6 +1,6 @@
-package Jsoup.UestcSystem;
+package httpclient.UestcSystem;
 
-import Jsoup.HttpClient;
+import httpclient.HttpClient;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.testng.Assert;

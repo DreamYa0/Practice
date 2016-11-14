@@ -14,7 +14,7 @@ import org.testng.annotations.Test;
  */
 public class AdvisorUser extends PublicFuntion {
 
-    CloseableHttpClient client = HttpClients.createDefault();
+    private final CloseableHttpClient client = HttpClients.createDefault();
     Logger logger;
 
     public AdvisorUser() {

@@ -17,14 +17,16 @@ import java.util.List;
  * Created by DreamYao on 2016/6/16.
  */
 public class HttpClient {
-    public static HttpPost post;
-    public static HttpGet get;
-    public static CloseableHttpResponse response;
-    public static String responseContent;
+    private static HttpPost post;
+    private static HttpGet get;
+    private static CloseableHttpResponse response;
+    private static String responseContent;
+
+    private HttpClient(){}
 
     public static String sendInfo(CloseableHttpClient client, String sendurl, String data) {
         post = new HttpPost(sendurl);
-        StringEntity myEntity = new StringEntity(data, ContentType.APPLICATION_JSON);// 构造请求数据
+        StringEntity myEntity = new StringEntity(data, ContentType.APPLICATION_JSON);// 构造请求数据实体对象
         post.setEntity(myEntity);// 设置请求体
          // 响应内容
         try {

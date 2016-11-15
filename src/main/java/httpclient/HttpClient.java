@@ -20,9 +20,9 @@ public class HttpClient {
     private static HttpPost post;
     private static HttpGet get;
     private static CloseableHttpResponse response;
-    private static String responseContent;
+    public static String responseContent;
 
-    private HttpClient(){}
+    public HttpClient(){}
 
     public static String sendInfo(CloseableHttpClient client, String sendurl, String data) {
         post = new HttpPost(sendurl);

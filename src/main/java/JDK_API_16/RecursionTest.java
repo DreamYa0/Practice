@@ -43,7 +43,7 @@ package JDK_API_16;
  */
 public class RecursionTest {
     public static void main(String[] args) {
-        int x1 = 1;
+        int x1;
         int sum = 0;
         int n = 10;
         for (int i = 0; i < n; i++) {

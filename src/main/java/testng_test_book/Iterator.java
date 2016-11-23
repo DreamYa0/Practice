@@ -6,9 +6,9 @@ package testng_test_book;
  *         迭代器
  */
 public interface Iterator {
-    public boolean hasNext();
+    boolean hasNext();
 
-    public Object next();
+    Object next();
 
-    public void remove();
+    void remove();
 }

@@ -1,4 +1,5 @@
 # Practice
+代码示例
 ```
 public class WatercolorSets {
     public static void main(String[] args) {

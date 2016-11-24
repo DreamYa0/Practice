@@ -5,10 +5,10 @@ package testng_test_book;
  *         Created by DreamYao on 2016/6/8.
  *         迭代器
  */
-public interface Iterator {
+public interface Iterator<T> {
     boolean hasNext();
 
-    Object next();
+    T next();
 
     void remove();
 }

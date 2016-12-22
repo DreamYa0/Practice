@@ -85,29 +85,29 @@ public class Dbutil {
             /**
              * 循环打印出List表中的所以数据，也可循环封装为Json数据打印出
              */
-//            for (int i=0;i<list.size();i++){
-//                System.out.println(list.get(i));
-//            }
+           // for (int i=0;i<list.size();i++){
+           //     System.out.println(list.get(i));
+           // }
             /**
              * 取List表的第一行数据并进行Json封装
              * 从List表里取1-10条数据中的随机一条，然后转化为Json数据格式
              */
-//            Random random=new Random();
+           // Random random=new Random();
             data = JSONUtils.toJSONString(list.get(0));
             /**
              * 取List表中的某行值存到Map中，再Map中取出对应字段的value
              */
-//            Map map1 = (Map) list.get(0);//去List表的第一行数据存入map1
-//            String value=map1.get("name").toString();//去map1中对应字段name的值
-//            System.out.println(value);
+           // Map map1 = (Map) list.get(0);//去List表的第一行数据存入map1
+           // String value=map1.get("name").toString();//去map1中对应字段name的值
+           // System.out.println(value);
             /**
              * 取List表中的所有值
              */
-//            Iterator ite = list.iterator();//创建迭代器
-//            while (ite.hasNext()){
-//                Map map= (Map) ite.next();
-//                System.out.println(map.toString());
-//            }
+           // Iterator ite = list.iterator();//创建迭代器
+           // while (ite.hasNext()){
+           //     Map map= (Map) ite.next();
+           //     System.out.println(map.toString());
+           // }
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

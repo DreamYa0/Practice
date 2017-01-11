@@ -290,5 +290,11 @@
             <version>1.16.10</version>
             <scope>provided</scope>
         </dependency>
+        <!-- FastJson相关 -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.23</version>
+        </dependency>
     </dependencies>
 </project>

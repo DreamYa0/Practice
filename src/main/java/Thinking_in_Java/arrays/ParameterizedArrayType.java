@@ -1,7 +1,5 @@
 package Thinking_in_Java.arrays;
 
-import testng_test_book.Database;
-
 /**
  * Created by Administrator on 2017/1/9.
  * P440 数组与泛型
@@ -18,6 +16,7 @@ public class ParameterizedArrayType {
 }
 
 class ClassParameter<T> {
+    // 参数化方法
     public T[] f(T[] arg) {
         return arg;
     }

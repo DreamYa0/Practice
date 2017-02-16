@@ -10,7 +10,7 @@ public class InsertionSort {
 
     public static void main(String[] args) {
         // TODO Auto-generated method stub
-        InsertionSort.MethodBody(new int[] { 31, 41, 59, 26, 41, 58 });
+        InsertionSort.MethodBody2(new int[] { 31, 41, 59, 26, 41, 58 });
 
     }
     //升序排列
@@ -38,5 +38,19 @@ public class InsertionSort {
             }
         }
         System.out.println(Arrays.toString(B));
+    }
+
+    // 冒泡排序
+    public static final void MethodBody2(int[] C) {
+        for (int i = 0; i < C.length; i++) {
+            for (int j = 1; j < C.length-1; j++) {
+                if (C[j-1] > C[j]) {
+                    C[j] = C[j] ^ C[j - 1];
+                    C[j - 1] = C[j - 1] ^ C[j];
+                    C[j - 1] = C[j];
+                }
+            }
+        }
+        System.out.println(Arrays.toString(C));
     }
 }

@@ -37,7 +37,7 @@ public class HttpClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        responseContent = verificationUtil(response);
+        responseContent = verification(response);
         return responseContent;
     }
 
@@ -48,7 +48,7 @@ public class HttpClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        responseContent = verificationUtil(response);
+        responseContent = verification(response);
         return responseContent;
     }
     public static String sendInfo(CloseableHttpClient client,String sendurl, String data,List<NameValuePair> postForm) {
@@ -67,7 +67,7 @@ public class HttpClient {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        responseContent = verificationUtil(response);
+        responseContent = verification(response);
         return responseContent;
     }
 
@@ -76,7 +76,7 @@ public class HttpClient {
      * @param response
      * @return
      */
-    private static String verificationUtil(CloseableHttpResponse response){
+    private static String verification(CloseableHttpResponse response){
         try {
             if (response.getStatusLine().getStatusCode() == 200) {
                 HttpEntity entity = response.getEntity();

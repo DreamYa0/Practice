@@ -29,7 +29,7 @@ public class Music {
 
 }
 enum Note{
-    MIDDLE_C,C_SHARP,B_FLAT;
+    MIDDLE_C,C_SHARP,B_FLAT
 }
 class Instrument{
     public void play(Note n) {

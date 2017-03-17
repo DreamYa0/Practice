@@ -42,6 +42,16 @@
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpclient:4.5.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.httpcomponents:httpcore:4.4.4" level="project" />
     <orderEntry type="library" name="Maven: commons-codec:commons-codec:1.9" level="project" />
+    <orderEntry type="library" name="Maven: org.assertj:assertj-db:1.1.1" level="project" />
+    <orderEntry type="library" name="Maven: org.assertj:assertj-core:3.5.2" level="project" />
+    <orderEntry type="library" name="Maven: org.assertj:assertj-core-java8:1.0.0m1" level="project" />
+    <orderEntry type="library" name="Maven: com.revinate:assertj-json:1.0.1" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-core:2.4.6" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.4.6" level="project" />
+    <orderEntry type="library" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.4.0" level="project" />
+    <orderEntry type="library" name="Maven: com.jayway.jsonpath:json-path:2.0.0" level="project" />
+    <orderEntry type="library" name="Maven: net.minidev:json-smart:2.1.1" level="project" />
+    <orderEntry type="library" name="Maven: net.minidev:asm:1.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.dom4j:dom4j:2.0.0" level="project" />
     <orderEntry type="library" name="Maven: jaxen:jaxen:1.1.6" level="project" />
     <orderEntry type="library" name="Maven: org.apache.poi:poi:3.14" level="project" />

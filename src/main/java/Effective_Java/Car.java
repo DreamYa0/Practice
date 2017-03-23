@@ -36,10 +36,6 @@ public class Car {
         return brand;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public List<Integer> getPrices() {
         return prices;
     }
@@ -78,10 +74,6 @@ class AutoCar extends Car{
 
     public String getBrand() {
         return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
     }
 
     public List<Integer> getPrices() {
@@ -124,10 +116,6 @@ class BMWCar extends Car{
         return brand;
     }
 
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
     public List<Integer> getPrices() {
         return prices;
     }
@@ -155,10 +143,6 @@ class BenzCar extends Car{
 
     public String getBrand() {
         return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
     }
 
     public List<Integer> getPrices() {

@@ -2,6 +2,7 @@ package Effective_Java;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -168,6 +169,8 @@ class BenzCar extends Car{
 class Test{
     public static void main(String[] args) {
         List<Car> cars = new ArrayList<>(Arrays.asList(new AutoCar(),new BMWCar(),new BenzCar()));
+        Iterator<Car> iterator=cars.iterator();
+
         for (Car car : cars) {
             String name=car.getBrand();
             List<Integer> pices=car.getPrices();

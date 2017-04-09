@@ -8,8 +8,10 @@ public class BinarySeach {
 
     private static final int NOT_FOUND = -1;
 
-    public static <AnyType extends Comparable<? super AnyType>> int binarySeach(AnyType[] anyTypes, AnyType x) {
-        int low = 0, high = anyTypes.length - 1;
+    private BinarySeach(){}
+    public static <T extends Comparable<? super T>> int binarySeach(T[] anyTypes, T x) {
+        int low = 0;
+        int high = anyTypes.length - 1;
         while (low <= high) {
             int mid = (low + high) / 2;
             if (anyTypes[mid].compareTo(x) < 0) {

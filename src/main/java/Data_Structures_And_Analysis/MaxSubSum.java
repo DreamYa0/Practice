@@ -7,6 +7,8 @@ package Data_Structures_And_Analysis;
  */
 public class MaxSubSum {
 
+    private MaxSubSum(){}
+
     public static int maxSubSum(int[] array) {
         int maxSum = 0;
         for (int i = 0; i < array.length; i++) {

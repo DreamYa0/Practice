@@ -22,8 +22,10 @@ public class DatabaseData {
         switch (method.getName()) {
             case "two":
                 result = new Object[][]{new Object[]{2}};
+                break;
             case "three":
                 result = new Object[][]{new Object[]{3}};
+                break;
         }
         return result;
     }

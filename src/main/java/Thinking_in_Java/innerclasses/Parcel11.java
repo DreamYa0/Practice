@@ -53,7 +53,7 @@ public class Parcel11 {
     public static void main(String[] args) {
         Contents c = contents();
         Destination d = destination("Tasmania");
-        System.out.println(c);
-        System.out.println(d);
+        System.out.println(c.value());
+        System.out.println(d.readLabel());
     }
 }

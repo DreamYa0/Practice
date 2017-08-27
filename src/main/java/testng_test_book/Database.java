@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
  *         Created by DreamYao on 2016/6/8.
  *         Method参数
  */
-public class Database {
+public class Database extends CommonTest<Database>{
 
     @Test(dataProvider = "provideNumbers", dataProviderClass = DatabaseData.class)
     public void two(int param) {

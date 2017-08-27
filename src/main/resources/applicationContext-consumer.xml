@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+                xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd        
+    http://code.alibabatech.com/schema/dubbo        
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 消费方应用名 -->
+    <dubbo:application name="devops-web"/>
+
+    <!--测试环境zk注册中心的地址-->
+    <dubbo:registry protocol="zookeeper" address="192.168.142.244:2181" timeout="20000"/>
+
+    <!-- 引用服务提供接口的路径 -->
+    <dubbo:reference id="qaResultService" interface="com.zhubajie.autotest.service.api.QaResultService" check="false"/>
+</beans>

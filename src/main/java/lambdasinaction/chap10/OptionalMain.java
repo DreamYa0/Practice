@@ -4,8 +4,6 @@ import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
-import static java.util.stream.Collectors.toSet;
-
 public class OptionalMain {
 
     public String getCarInsuranceName(Optional<Person> person) {
@@ -16,11 +14,7 @@ public class OptionalMain {
     }
 
     public Set<String> getCarInsuranceNames(List<Person> persons) {
-        return persons.stream()
-                      .map(Person::getCar)
-                      .map(optCar -> optCar.flatMap(Car::getInsurance))
-                      .map(optInsurance -> optInsurance.map(Insurance::getName))
-                      .flatMap(Optional::stream)
-                      .collect(toSet());
+        // return persons.stream().map(Person::getCar).map(optCar -> optCar.flatMap(Car::getInsurance)).map(optInsurance -> optInsurance.map(Insurance::getName)).flatMap(Optional::stream).collect(toSet());
+        return null;
     }
 }

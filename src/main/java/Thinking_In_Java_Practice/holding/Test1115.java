@@ -1,6 +1,6 @@
 package Thinking_In_Java_Practice.holding;
 
-import Thinking_in_Java.holding.Stack;
+import thinkinginjava.holding.Stack;
 
 /**
  * Created by DreamYao on 2016/7/8.

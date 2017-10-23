@@ -1,40 +1,10 @@
-package Thinking_In_Java_Practice.holding;
-
-import thinkinginjava.innerclasses.Event;
-
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+package thinkinginjava.innerclasses;
 
 /**
- * Created by DreamYao on 2016/7/8.
+ * Created by DreamYao on 2016/6/20.
+ * P209控制框架
  */
-class Controller {
-    // List changed to a LinkedList:
-    private List<Event> eventList =
-            new LinkedList<Event>();
-
-    public void addEvent(Event c) {
-        eventList.add(c);
-    }
-
-    public void run() {
-        while (eventList.size() > 0) {
-            Iterator<Event> it =
-                    new LinkedList<Event>(eventList).iterator();
-            while (it.hasNext()) {
-                Event e = it.next();
-                if (e.ready()) {
-                    System.out.println(e);
-                    e.action();
-                    it.remove();
-                }
-            }
-        }
-    }
-}
-
-class GreenhouseControls extends Controller {
+public class GreenhouseControls extends Controller {
     private boolean light = false;
 
     public class LightOn extends Event {
@@ -47,11 +17,12 @@ class GreenhouseControls extends Controller {
         }
 
         public String toString() {
-            return "Light is on";
+            return "Light is off";
         }
     }
 
     public class LightOff extends Event {
+
         public LightOff(long delayTime) {
             super(delayTime);
         }
@@ -107,7 +78,7 @@ class GreenhouseControls extends Controller {
         }
 
         public String toString() {
-            return "Thermostat on night setting";
+            return "Thermastat on night setting";
         }
     }
 
@@ -121,7 +92,7 @@ class GreenhouseControls extends Controller {
         }
 
         public String toString() {
-            return "Thermostat on day setting";
+            return "Thermastat on day setting";
         }
     }
 
@@ -135,7 +106,7 @@ class GreenhouseControls extends Controller {
         }
 
         public String toString() {
-            return "Bing!";
+            return "Bing";
         }
     }
 
@@ -145,8 +116,10 @@ class GreenhouseControls extends Controller {
         public Restart(long delayTime, Event[] eventList) {
             super(delayTime);
             this.eventList = eventList;
-            for (Event e : eventList)
+            for (Event e : eventList) {
                 addEvent(e);
+            }
+
         }
 
         public void action() {
@@ -175,26 +148,5 @@ class GreenhouseControls extends Controller {
         public String toString() {
             return "Terminating";
         }
-    }
-}
-
-public class Test1113 {
-    public static void main(String[] args) {
-        GreenhouseControls gc = new GreenhouseControls();
-        gc.addEvent(gc.new Bell(900));
-        Event[] eventList = {
-                gc.new ThermostatNight(0),
-                gc.new LightOn(200),
-                gc.new LightOff(400),
-                gc.new WaterOn(600),
-                gc.new WaterOff(800),
-                gc.new ThermostatDay(1400)
-        };
-        gc.addEvent(gc.new Restart(2000, eventList));
-        if (args.length == 1)
-            gc.addEvent(
-                    new GreenhouseControls.Terminate(
-                            new Integer(args[0])));
-        gc.run();
     }
 }

@@ -1,6 +1,6 @@
 package httpclient.UestcSystem;
 
-        import static Java_AutoTest_Framework.dataset.db.Dbutil.JsonValue;
+        import static autotestframework.dataset.db.Dbutil.JsonValue;
 
 /**
  * Created by DreamYao on 2016/6/17.

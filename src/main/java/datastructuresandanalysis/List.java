@@ -57,6 +57,7 @@ public class List<T> {
         length--;
     }
 
+    @SuppressWarnings("unchecked")
     public T get(int index) {
         return (T) list[index];
     }

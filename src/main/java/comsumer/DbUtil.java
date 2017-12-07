@@ -1,9 +1,5 @@
 package comsumer;
 
-import com.alibaba.fastjson.JSON;
-import com.zhubajie.autotest.service.api.QaResultService;
-import com.zhubajie.autotest.service.common.Result;
-import com.zhubajie.autotest.service.model.CaseDataIntoInModel;
 import org.apache.commons.dbutils.DbUtils;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
@@ -12,10 +8,8 @@ import org.apache.commons.dbutils.handlers.BeanListHandler;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.Iterator;
 import java.util.List;
 
-import static comsumer.AbstractResourceUtils.getBean;
 
 /**
  * Created by DreamYao on 2016/12/17.
@@ -93,36 +87,6 @@ public class DbUtil {
             e.printStackTrace();
         }finally {
             DbUtils.closeQuietly(conn);
-        }
-    }
-
-    //测试调用方法
-    public static void main(String[] args) {
-
-        /*String sql1 = "insert into qa_method (project_id,class_name,methods_name,methods_parameter,methods_return,is_pass,create_time) values(?,?,?,?,?,?,?)";
-        Object[] params1 = {1,"dreamyao","dreamYao","aaa","bbb",1,"2014-09-24"};
-        insertValue(sql1,params1);*/
-        String sql2 = "select id,project_id,project_name,class_name,methods_name,methods_parameter,methods_return,is_pass,round,run_author,create_time from qa_method";
-        List<QaMethod> methods = queryValue(sql2);
-        System.out.println(JSON.toJSONString(methods));
-        QaResultService qaResultService = getBean("qaResultService");
-        QaResultService qaResultService1 = getBean(QaResultService.class);
-        Iterator<QaMethod> iterator=methods.iterator();
-        QaMethod qaMethod;
-        CaseDataIntoInModel model=new CaseDataIntoInModel();
-        while (iterator.hasNext()) {
-            qaMethod = iterator.next();
-            model.setProjectId(qaMethod.getProject_id());
-            model.setClassName(qaMethod.getClass_name());
-            model.setMethodsName(qaMethod.getMethods_name());
-            model.setMethodsParameter(qaMethod.getMethods_parameter());
-            model.setMethodReturn(qaMethod.getMethods_return());
-            model.setIsPass(qaMethod.getIs_pass());
-            model.setRound(qaMethod.getRound());
-            model.setRunAuthor(qaMethod.getRun_author());
-            model.setCreateTime(qaMethod.getCreate_time());
-            Result<Boolean> result = qaResultService.saveTestResult(model);
-            System.out.println(JSON.toJSONString(result));
         }
     }
 }

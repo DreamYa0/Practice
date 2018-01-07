@@ -18,5 +18,7 @@ public class Client {
         sequence.add("stop");
         sequence.add("alarm");
         sequence.add("engine boom");
+        benz.setSequence(sequence);
+        benz.run();
     }
 }

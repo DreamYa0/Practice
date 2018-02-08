@@ -171,10 +171,10 @@ public class DynamicProxyPerformanceTest {
         String interfacePath = CountService.class.getName().replace('.', '/');
         classWriter.visit(Opcodes.V1_5, Opcodes.ACC_PUBLIC, classPath, null, "java/lang/Object", new String[] {interfacePath});
 
-        MethodVisitor initVisitor = classWriter.visitMethod(Opcodes.ACC_PUBLIC, "&lt;init&gt;", "()V", null, null);
+        MethodVisitor initVisitor = classWriter.visitMethod(Opcodes.ACC_PUBLIC, "<init>", "()V", null, null);
         initVisitor.visitCode();
         initVisitor.visitVarInsn(Opcodes.ALOAD, 0);
-        initVisitor.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/lang/Object", "&lt;init&gt;", "()V");
+        initVisitor.visitMethodInsn(Opcodes.INVOKESPECIAL, "java/lang/Object", "<init>", "()V");
         initVisitor.visitInsn(Opcodes.RETURN);
         initVisitor.visitMaxs(0, 0);
         initVisitor.visitEnd();

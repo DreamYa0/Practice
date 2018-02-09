@@ -6,14 +6,15 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Created by dreamyao on 2017/7/11.
+ * @author dreamyao
+ * @date 2017/7/11
  */
 public class Priority {
 
     private static volatile boolean notStart = true;
     private static volatile boolean notEnd = true;
 
-    public static void main(String[] args) throws Exception{
+    public static void main(String[] args) throws Exception {
         List<Job> jobs = Lists.newArrayList();
         for (int i = 0; i < 10; i++) {
             int priority = i < 5 ? Thread.MIN_PRIORITY : Thread.MAX_PRIORITY;
@@ -28,7 +29,7 @@ public class Priority {
         jobs.forEach(job -> System.out.println("Job Priority : " + job.priority + ", Count : " + job.jobCount));
     }
 
-    static class Job implements Runnable{
+    private static class Job implements Runnable {
 
         private int priority;
         private long jobCount;

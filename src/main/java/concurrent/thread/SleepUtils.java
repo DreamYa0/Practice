@@ -1,4 +1,4 @@
-package thread;
+package concurrent.thread;
 
 import java.util.concurrent.TimeUnit;
 
@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
 public class SleepUtils {
     public static final void second(long seconds) {
         try {
-            TimeUnit.SECONDS.wait();
+            TimeUnit.SECONDS.sleep(seconds);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

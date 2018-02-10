@@ -1,4 +1,4 @@
-package thread;
+package concurrent.thread;
 
 /**
  * @author dreamyao

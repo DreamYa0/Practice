@@ -107,6 +107,11 @@
         <com.zhubajie.dubbo.dubbo-ext.version>1.1.1</com.zhubajie.dubbo.dubbo-ext.version>
     </properties>
     <dependencies>
+        <dependency>
+            <groupId>com.google.code.findbugs</groupId>
+            <artifactId>jsr305</artifactId>
+            <version>3.0.2</version>
+        </dependency>
         <!-- 沙箱模块的API定义二方包 这个二方包可以被声明为provided -->
         <dependency>
             <groupId>com.alibaba.jvm.sandbox</groupId>
@@ -130,6 +135,12 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>23.0</version>
+            <exclusions>
+                <exclusion>
+                    <artifactId>jsr305</artifactId>
+                    <groupId>com.google.code.findbugs</groupId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.openjdk.jmh</groupId>

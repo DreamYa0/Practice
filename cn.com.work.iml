@@ -20,6 +20,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:3.0.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.alibaba.jvm.sandbox:sandbox-api:1.0.9" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.alibaba.jvm.sandbox:sandbox-common-api:1.0.1" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.servlet:javax.servlet-api:3.0.1" level="project" />
@@ -46,7 +47,6 @@
     <orderEntry type="library" name="Maven: org.jodd:jodd-upload:3.9.1" level="project" />
     <orderEntry type="library" name="Maven: org.jodd:jodd-vtor:3.9.1" level="project" />
     <orderEntry type="library" name="Maven: com.google.guava:guava:23.0" level="project" />
-    <orderEntry type="library" name="Maven: com.google.code.findbugs:jsr305:1.3.9" level="project" />
     <orderEntry type="library" name="Maven: com.google.errorprone:error_prone_annotations:2.0.18" level="project" />
     <orderEntry type="library" name="Maven: com.google.j2objc:j2objc-annotations:1.1" level="project" />
     <orderEntry type="library" name="Maven: org.codehaus.mojo:animal-sniffer-annotations:1.14" level="project" />

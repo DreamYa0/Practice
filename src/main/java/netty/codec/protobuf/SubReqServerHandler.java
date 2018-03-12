@@ -27,7 +27,6 @@ import io.netty.channel.ChannelHandlerContext;
 @Sharable
 public class SubReqServerHandler extends ChannelHandlerAdapter {
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
 	    throws Exception {
 	SubscribeReqProto.SubscribeReq req = (SubscribeReqProto.SubscribeReq) msg;

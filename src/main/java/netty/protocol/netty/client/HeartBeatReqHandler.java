@@ -17,13 +17,12 @@ package netty.protocol.netty.client;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import netty.protocol.netty.MessageType;
+import netty.protocol.netty.struct.Header;
+import netty.protocol.netty.struct.NettyMessage;
 
 import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
-
-import com.phei.netty.protocol.netty.MessageType;
-import com.phei.netty.protocol.netty.struct.Header;
-import com.phei.netty.protocol.netty.struct.NettyMessage;
 
 /**
  * @author dreamyao
@@ -34,7 +33,6 @@ public class HeartBeatReqHandler extends ChannelHandlerAdapter {
 
     private volatile ScheduledFuture<?> heartBeat;
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
 	    throws Exception {
 	NettyMessage message = (NettyMessage) msg;

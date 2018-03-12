@@ -62,89 +62,11 @@ import javax.activation.MimetypesFileTypeMap;
  * @date 2014年2月14日
  * @version 1.0
  */
-public class HttpFileServerHandler extends
-	SimpleChannelInboundHandler<FullHttpRequest> {
+public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpRequest> {
     private final String url;
 
     public HttpFileServerHandler(String url) {
 	this.url = url;
-    }
-
-    @Override
-    public void messageReceived(ChannelHandlerContext ctx,
-	    FullHttpRequest request) throws Exception {
-	if (!request.getDecoderResult().isSuccess()) {
-	    sendError(ctx, BAD_REQUEST);
-	    return;
-	}
-	if (request.getMethod() != GET) {
-	    sendError(ctx, METHOD_NOT_ALLOWED);
-	    return;
-	}
-	final String uri = request.getUri();
-	final String path = sanitizeUri(uri);
-	if (path == null) {
-	    sendError(ctx, FORBIDDEN);
-	    return;
-	}
-	File file = new File(path);
-	if (file.isHidden() || !file.exists()) {
-	    sendError(ctx, NOT_FOUND);
-	    return;
-	}
-	if (file.isDirectory()) {
-	    if (uri.endsWith("/")) {
-		sendListing(ctx, file);
-	    } else {
-		sendRedirect(ctx, uri + '/');
-	    }
-	    return;
-	}
-	if (!file.isFile()) {
-	    sendError(ctx, FORBIDDEN);
-	    return;
-	}
-	RandomAccessFile randomAccessFile = null;
-	try {
-	    randomAccessFile = new RandomAccessFile(file, "r");// 以只读的方式打开文件
-	} catch (FileNotFoundException fnfe) {
-	    sendError(ctx, NOT_FOUND);
-	    return;
-	}
-	long fileLength = randomAccessFile.length();
-	HttpResponse response = new DefaultHttpResponse(HTTP_1_1, OK);
-	setContentLength(response, fileLength);
-	setContentTypeHeader(response, file);
-	if (isKeepAlive(request)) {
-	    response.headers().set(CONNECTION, HttpHeaders.Values.KEEP_ALIVE);
-	}
-	ctx.write(response);
-	ChannelFuture sendFileFuture;
-	sendFileFuture = ctx.write(new ChunkedFile(randomAccessFile, 0,
-		fileLength, 8192), ctx.newProgressivePromise());
-	sendFileFuture.addListener(new ChannelProgressiveFutureListener() {
-	    @Override
-	    public void operationProgressed(ChannelProgressiveFuture future,
-		    long progress, long total) {
-		if (total < 0) { // total unknown
-		    System.err.println("Transfer progress: " + progress);
-		} else {
-		    System.err.println("Transfer progress: " + progress + " / "
-			    + total);
-		}
-	    }
-
-	    @Override
-	    public void operationComplete(ChannelProgressiveFuture future)
-		    throws Exception {
-		System.out.println("Transfer complete.");
-	    }
-	});
-	ChannelFuture lastContentFuture = ctx
-		.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
-	if (!isKeepAlive(request)) {
-	    lastContentFuture.addListener(ChannelFutureListener.CLOSE);
-	}
     }
 
     @Override
@@ -242,4 +164,80 @@ public class HttpFileServerHandler extends
 	response.headers().set(CONTENT_TYPE,
 		mimeTypesMap.getContentType(file.getPath()));
     }
+
+	@Override
+	protected void channelRead0(ChannelHandlerContext ctx, FullHttpRequest msg) throws Exception {
+		if (!msg.getDecoderResult().isSuccess()) {
+			sendError(ctx, BAD_REQUEST);
+			return;
+		}
+		if (msg.getMethod() != GET) {
+			sendError(ctx, METHOD_NOT_ALLOWED);
+			return;
+		}
+		final String uri = msg.getUri();
+		final String path = sanitizeUri(uri);
+		if (path == null) {
+			sendError(ctx, FORBIDDEN);
+			return;
+		}
+		File file = new File(path);
+		if (file.isHidden() || !file.exists()) {
+			sendError(ctx, NOT_FOUND);
+			return;
+		}
+		if (file.isDirectory()) {
+			if (uri.endsWith("/")) {
+				sendListing(ctx, file);
+			} else {
+				sendRedirect(ctx, uri + '/');
+			}
+			return;
+		}
+		if (!file.isFile()) {
+			sendError(ctx, FORBIDDEN);
+			return;
+		}
+		RandomAccessFile randomAccessFile = null;
+		try {
+			randomAccessFile = new RandomAccessFile(file, "r");// 以只读的方式打开文件
+		} catch (FileNotFoundException fnfe) {
+			sendError(ctx, NOT_FOUND);
+			return;
+		}
+		long fileLength = randomAccessFile.length();
+		HttpResponse response = new DefaultHttpResponse(HTTP_1_1, OK);
+		setContentLength(response, fileLength);
+		setContentTypeHeader(response, file);
+		if (isKeepAlive(msg)) {
+			response.headers().set(CONNECTION, HttpHeaders.Values.KEEP_ALIVE);
+		}
+		ctx.write(response);
+		ChannelFuture sendFileFuture;
+		sendFileFuture = ctx.write(new ChunkedFile(randomAccessFile, 0,
+				fileLength, 8192), ctx.newProgressivePromise());
+		sendFileFuture.addListener(new ChannelProgressiveFutureListener() {
+			@Override
+			public void operationProgressed(ChannelProgressiveFuture future,
+											long progress, long total) {
+				if (total < 0) { // total unknown
+					System.err.println("Transfer progress: " + progress);
+				} else {
+					System.err.println("Transfer progress: " + progress + " / "
+							+ total);
+				}
+			}
+
+			@Override
+			public void operationComplete(ChannelProgressiveFuture future)
+					throws Exception {
+				System.out.println("Transfer complete.");
+			}
+		});
+		ChannelFuture lastContentFuture = ctx
+				.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
+		if (!isKeepAlive(msg)) {
+			lastContentFuture.addListener(ChannelFutureListener.CLOSE);
+		}
+	}
 }

@@ -18,19 +18,18 @@ package netty.protocol.netty.codec;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.MessageToByteEncoder;
+import netty.protocol.netty.struct.NettyMessage;
 
 import java.io.IOException;
 import java.util.Map;
 
-import com.phei.netty.protocol.netty.struct.NettyMessage;
 
 /**
  * @author dreamyao
  * @date 2014年3月14日
  * @version 1.0
  */
-public final class NettyMessageEncoder extends
-	MessageToByteEncoder<NettyMessage> {
+public final class NettyMessageEncoder extends MessageToByteEncoder<NettyMessage> {
 
     MarshallingEncoder marshallingEncoder;
 

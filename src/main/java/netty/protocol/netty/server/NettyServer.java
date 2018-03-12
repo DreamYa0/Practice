@@ -25,12 +25,11 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 import io.netty.handler.timeout.ReadTimeoutHandler;
+import netty.protocol.netty.NettyConstant;
+import netty.protocol.netty.codec.NettyMessageDecoder;
+import netty.protocol.netty.codec.NettyMessageEncoder;
 
 import java.io.IOException;
-
-import com.phei.netty.protocol.netty.NettyConstant;
-import com.phei.netty.protocol.netty.codec.NettyMessageDecoder;
-import com.phei.netty.protocol.netty.codec.NettyMessageEncoder;
 
 /**
  * @author dreamyao

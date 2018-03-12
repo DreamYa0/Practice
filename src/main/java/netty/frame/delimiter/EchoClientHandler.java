@@ -36,7 +36,6 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
     public EchoClientHandler() {
     }
 
-    @Override
     public void channelActive(ChannelHandlerContext ctx) {
 	// ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(ECHO_REQ
 	// .getBytes().length);
@@ -46,14 +45,12 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
 	}
     }
 
-    @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg)
 	    throws Exception {
 	System.out.println("This is " + ++counter + " times receive server : ["
 		+ msg + "]");
     }
 
-    @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
 	ctx.flush();
     }

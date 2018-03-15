@@ -44,13 +44,16 @@ public class EchoServer {
         try {
             ServerBootstrap b = new ServerBootstrap();
             // 指定所使用的NIO传输Channel
-            b.group(group).channel(NioServerSocketChannel.class).localAddress(new InetSocketAddress(port)).childHandler(new ChannelInitializer<SocketChannel>() {
-                @Override
-                protected void initChannel(SocketChannel ch) throws Exception {
-                    // EchoServerHandler被标注为@Shareable，所以我们可以总是使用同样的实列
-                    ch.pipeline().addLast(serverHandler);
-                }
-            });
+            b.group(group)
+                    .channel(NioServerSocketChannel.class)
+                    .localAddress(new InetSocketAddress(port))
+                    .childHandler(new ChannelInitializer<SocketChannel>() {
+                        @Override
+                        protected void initChannel(SocketChannel ch) throws Exception {
+                            // EchoServerHandler被标注为@Shareable，所以我们可以总是使用同样的实列
+                            ch.pipeline().addLast(serverHandler);
+                        }
+                    });
             // 异步地绑定服务器调用sync()方法阻塞等待直到绑定完成
             ChannelFuture future = b.bind().sync();
             // 获取Channel的CloseFuture，并且阻塞当前线程直到它完成

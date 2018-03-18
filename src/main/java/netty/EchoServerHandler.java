@@ -19,11 +19,17 @@ public class EchoServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println(ctx.name());
         ByteBuf in = (ByteBuf) msg;
-        // 将消息记录到控制台
-        System.out.println("Server received: " + in.toString(CharsetUtil.UTF_8));
-        // 将接收到消息写给发送者，而不冲刷出站消息
-        ctx.write(in);
+        String string = in.toString(CharsetUtil.UTF_8);
+        if ("Netty rocks".equals(string)) {
+            // 将消息记录到控制台
+            System.out.println("Server received: " + string);
+            // 将接收到消息写给发送者，而不冲刷出站消息
+            ctx.write(in);
+        } else {
+            ctx.fireChannelRead(msg);
+        }
     }
 
     @Override

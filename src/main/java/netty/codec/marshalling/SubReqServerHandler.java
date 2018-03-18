@@ -15,9 +15,9 @@
  */
 package netty.codec.marshalling;
 
-import io.netty.channel.ChannelHandler.Sharable;
-import io.netty.channel.ChannelHandlerAdapter;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelInboundHandlerAdapter;
 import netty.codec.pojo.SubscribeReq;
 import netty.codec.pojo.SubscribeResp;
 
@@ -26,17 +26,20 @@ import netty.codec.pojo.SubscribeResp;
  * @version 1.0
  * @date 2014年2月14日
  */
-@Sharable
-public class SubReqServerHandler extends ChannelHandlerAdapter {
+@ChannelHandler.Sharable
+public class SubReqServerHandler extends ChannelInboundHandlerAdapter {
 
-    public void channelRead(ChannelHandlerContext ctx, Object msg)
-            throws Exception {
-        SubscribeReq req = (SubscribeReq) msg;
-        if ("dreamyao".equalsIgnoreCase(req.getUserName())) {
-            System.out.println("Service accept client subscrib req : ["
-                    + req.toString() + "]");
-            ctx.writeAndFlush(resp(req.getSubReqID()));
+    @Override
+    public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
+        System.out.println(ctx.name());
+        if (msg instanceof SubscribeReq) {
+            SubscribeReq req = (SubscribeReq) msg;
+            if ("dreamyao".equalsIgnoreCase(req.getUserName())) {
+                System.out.println("Service accept client subscrib req : [" + req.toString() + "]");
+                ctx.writeAndFlush(resp(req.getSubReqID()));
+            }
         }
+
     }
 
     private SubscribeResp resp(int subReqID) {

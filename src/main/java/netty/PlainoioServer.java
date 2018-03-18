@@ -16,7 +16,7 @@ public class PlainoioServer {
 
     public void serve(int port) throws IOException {
         final ServerSocket socket = new ServerSocket(port);
-        for (;;) {
+        for (; ; ) {
             final Socket clientSocket = socket.accept();
             System.out.println("Accepted connection form " + clientSocket);
             ThreadPoolExecutor executor = new ThreadPoolExecutor(10, 20, 60, TimeUnit.SECONDS, new ArrayBlockingQueue<>(20));
@@ -29,7 +29,7 @@ public class PlainoioServer {
                     clientSocket.close();
                 } catch (IOException e) {
                     e.printStackTrace();
-                }finally {
+                } finally {
                     try {
                         clientSocket.close();
                     } catch (IOException e) {

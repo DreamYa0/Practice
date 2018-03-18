@@ -26,6 +26,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
 
+import java.net.InetSocketAddress;
+
 /**
  * @author dreamyao
  * @date 2014年2月14日
@@ -38,22 +40,19 @@ public class SubReqServer {
 	EventLoopGroup workerGroup = new NioEventLoopGroup();
 	try {
 	    ServerBootstrap b = new ServerBootstrap();
-	    b.group(bossGroup, workerGroup)
-		    .channel(NioServerSocketChannel.class)
-		    .option(ChannelOption.SO_BACKLOG, 100)
-		    .handler(new LoggingHandler(LogLevel.INFO))
-		    .childHandler(new ChannelInitializer<SocketChannel>() {
-			@Override
-			public void initChannel(SocketChannel ch) {
-			    ch.pipeline().addLast(
-				    MarshallingCodeCFactory
-					    .buildMarshallingDecoder());
-			    ch.pipeline().addLast(
-				    MarshallingCodeCFactory
-					    .buildMarshallingEncoder());
-			    ch.pipeline().addLast(new SubReqServerHandler());
-			}
-		    });
+		b.group(bossGroup, workerGroup)
+				.channel(NioServerSocketChannel.class)
+				.option(ChannelOption.SO_BACKLOG, 1024)
+				.localAddress(new InetSocketAddress(port))
+				.handler(new LoggingHandler(LogLevel.INFO))
+				.childHandler(new ChannelInitializer<SocketChannel>() {
+					@Override
+					public void initChannel(SocketChannel ch) {
+						ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingDecoder());
+						ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingEncoder());
+						ch.pipeline().addLast("serverHandler", new SubReqServerHandler());
+					}
+				});
 
 	    // 绑定端口，同步等待成功
 	    ChannelFuture f = b.bind(port).sync();

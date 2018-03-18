@@ -21,14 +21,13 @@ import io.netty.channel.ChannelHandlerContext;
 
 /**
  * @author dreamyao
- * @date 2014年2月14日
  * @version 1.0
+ * @date 2014年2月14日
  */
 public class EchoClientHandler extends ChannelHandlerAdapter {
 
-    private int counter;
-
     static final String ECHO_REQ = "Hi, dreamyao. Welcome to Netty.$_";
+    private int counter;
 
     /**
      * Creates a client-side handler.
@@ -37,27 +36,27 @@ public class EchoClientHandler extends ChannelHandlerAdapter {
     }
 
     public void channelActive(ChannelHandlerContext ctx) {
-	// ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(ECHO_REQ
-	// .getBytes().length);
-	// buf.writeBytes(ECHO_REQ.getBytes());
-	for (int i = 0; i < 10; i++) {
-	    ctx.writeAndFlush(Unpooled.copiedBuffer(ECHO_REQ.getBytes()));
-	}
+        // ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(ECHO_REQ
+        // .getBytes().length);
+        // buf.writeBytes(ECHO_REQ.getBytes());
+        for (int i = 0; i < 10; i++) {
+            ctx.writeAndFlush(Unpooled.copiedBuffer(ECHO_REQ.getBytes()));
+        }
     }
 
     public void channelRead(ChannelHandlerContext ctx, Object msg)
-	    throws Exception {
-	System.out.println("This is " + ++counter + " times receive server : ["
-		+ msg + "]");
+            throws Exception {
+        System.out.println("This is " + ++counter + " times receive server : ["
+                + msg + "]");
     }
 
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
-	ctx.flush();
+        ctx.flush();
     }
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) {
-	cause.printStackTrace();
-	ctx.close();
+        cause.printStackTrace();
+        ctx.close();
     }
 }

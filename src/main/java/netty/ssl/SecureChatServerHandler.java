@@ -34,11 +34,10 @@ import java.util.logging.Logger;
  */
 public class SecureChatServerHandler extends SimpleChannelInboundHandler<String> {
 
-    private static final Logger logger = Logger
-            .getLogger(SecureChatServerHandler.class.getName());
-
     static final ChannelGroup channels = new DefaultChannelGroup(
             GlobalEventExecutor.INSTANCE);
+    private static final Logger logger = Logger
+            .getLogger(SecureChatServerHandler.class.getName());
 
     @Override
     public void channelActive(final ChannelHandlerContext ctx) throws Exception {

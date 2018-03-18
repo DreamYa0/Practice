@@ -24,6 +24,8 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
+import java.net.InetSocketAddress;
+
 /**
  * @author dreamyao
  * @date 2014年2月14日
@@ -36,24 +38,20 @@ public class SubReqClient {
 	EventLoopGroup group = new NioEventLoopGroup();
 	try {
 	    Bootstrap b = new Bootstrap();
-	    b.group(group).channel(NioSocketChannel.class)
-		    .option(ChannelOption.TCP_NODELAY, true)
-		    .handler(new ChannelInitializer<SocketChannel>() {
-			@Override
-			public void initChannel(SocketChannel ch)
-				throws Exception {
-			    ch.pipeline().addLast(
-				    MarshallingCodeCFactory
-					    .buildMarshallingDecoder());
-			    ch.pipeline().addLast(
-				    MarshallingCodeCFactory
-					    .buildMarshallingEncoder());
-			    ch.pipeline().addLast(new SubReqClientHandler());
-			}
-		    });
+		b.group(group).channel(NioSocketChannel.class)
+				.option(ChannelOption.TCP_NODELAY, true)
+				.remoteAddress(new InetSocketAddress(host, port))
+				.handler(new ChannelInitializer<SocketChannel>() {
+					@Override
+					public void initChannel(SocketChannel ch) throws Exception {
+						ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingDecoder());
+						ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingEncoder());
+						ch.pipeline().addLast("clientHandler", new SubReqClientHandler());
+					}
+				});
 
 	    // 发起异步连接操作
-	    ChannelFuture f = b.connect(host, port).sync();
+	    ChannelFuture f = b.connect().sync();
 
 	    // 当代客户端链路关闭
 	    f.channel().closeFuture().sync();

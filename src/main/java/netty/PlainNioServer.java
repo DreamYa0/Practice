@@ -4,7 +4,10 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.nio.ByteBuffer;
-import java.nio.channels.*;
+import java.nio.channels.SelectionKey;
+import java.nio.channels.Selector;
+import java.nio.channels.ServerSocketChannel;
+import java.nio.channels.SocketChannel;
 import java.util.Iterator;
 import java.util.Set;
 
@@ -21,7 +24,7 @@ public class PlainNioServer {
         Selector selector = Selector.open();
         socketChannel.register(selector, SelectionKey.OP_ACCEPT);
         final ByteBuffer msg = ByteBuffer.wrap("Hi\r\n".getBytes());
-        for (;;) {
+        for (; ; ) {
             selector.select();
             Set<SelectionKey> readKeys = selector.selectedKeys();
             Iterator<SelectionKey> iterator = readKeys.iterator();
@@ -33,7 +36,7 @@ public class PlainNioServer {
                         ServerSocketChannel server = (ServerSocketChannel) key.channel();
                         SocketChannel client = server.accept();
                         client.configureBlocking(false);
-                        client.register(selector, SelectionKey.OP_WRITE|SelectionKey.OP_READ,msg.duplicate());
+                        client.register(selector, SelectionKey.OP_WRITE | SelectionKey.OP_READ, msg.duplicate());
                         System.out.println("Accepted connection from " + client);
                     }
                     if (key.isWritable()) {

@@ -21,13 +21,7 @@ public class MyAppThread extends Thread {
 
     public MyAppThread(Runnable target, String name) {
         super(target, name + "_" + created.incrementAndGet());
-        setUncaughtExceptionHandler(new Thread.UncaughtExceptionHandler(){
-
-            @Override
-            public void uncaughtException(Thread t, Throwable e) {
-                logger.info("UNCAUGHT in thread" + t.getName(), e);
-            }
-        });
+        setUncaughtExceptionHandler((t, e) -> logger.info("UNCAUGHT in thread" + t.getName(), e));
     }
 
     public void run(){
